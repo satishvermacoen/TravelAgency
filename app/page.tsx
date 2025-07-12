@@ -1,21 +1,20 @@
-import Destinations from "@/components/basic/Destinations";
-import EmailSignup from "@/components/basic/EmailSignup";
-import FeaturedTrips from "@/components/basic/FeaturedTrips";
-import Hero from "@/components/basic/Hero";
-import Services from "@/components/basic/Services";
-import Testimonials from "@/components/basic/Testimonials";
-import WhyChooseUs from "@/components/basic/WhyChooseTrips";
-import ContactPage from "@/components/pages/ContactPage";
+import WhyChooseUs from "@/components/main/WhyChooseTrips";
+import HowItWorks from "@/components/main/HowItWorks";
+import TrustBar from "@/components/main/TrustBar";
+import HeroSection from "@/components/main/HeroSection";
+import TopDestinations from "@/components/main/TopDestinations";
+import FeaturedTrips from "@/components/main/FeaturedTrips";
 
 
 export default function Home() {
   return (
-    <div className="bg-white text-gray-200 font-sans">
-      <Hero />
-      <Destinations />
+    <div className="bg-white text-gray-700 font-sans">
+      <HeroSection />
+      <TrustBar />
+      <HowItWorks />
+      <TopDestinations />
       <FeaturedTrips />
-      <Services />
-      <WhyChooseUs />
+      <WhyChooseUs /> 
     </div>  
   );
 }
