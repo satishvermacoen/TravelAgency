@@ -21,7 +21,6 @@ const DestinationDetailsPage = ({ params }: { params: { slug: string } }) => {
         );
     }
 
-    // This component now correctly receives the destination data.
     return (
         <DestinationDetailsClient destination={destination} />
     );
