@@ -1,6 +1,13 @@
 import { destinationsData, getDestinationBySlug } from "@/components/data/destinationDetails";
 import DestinationDetailsClient from "@/components/pages/DestinationDetailsClient";
 
+type DestinationDetailsPageProps = {
+  params: {
+    slug: string;
+  };
+  // You could also include searchParams if the page uses them
+  // searchParams: { [key: string]: string | string[] | undefined };
+};
 export async function generateStaticParams() {
   return destinationsData.map((dest) => ({
     slug: dest.slug,
