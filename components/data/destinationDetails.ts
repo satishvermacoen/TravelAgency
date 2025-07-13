@@ -37,4 +37,24 @@ export const destinationDetailsData = {
         ]
     },
     // Add other destinations as needed
+    munnar: {
+        description: "Often called the 'City of Lakes' and the 'Venice of the East', Udaipur is a city of romantic landscapes and royal grandeur, with stunning palaces and serene lakes.",
+        highlights: ["City Palace, Udaipur", "Lake Pichola & Jag Mandir", "Saheliyon Ki Bari", "Monsoon Palace (Sajjan Garh)"],
+        gallery: [
+            "https://images.unsplash.com/photo-1577089907583-9a8d65a783a5?q=80&w=1974",
+            "https://images.unsplash.com/photo-1547293513-2457452b254a?q=80&w=2070",
+            "https://images.unsplash.com/photo-1615835924238-573e35d13719?q=80&w=1974",
+        ]
+    },
+    // Add other destinations as needed
+    darjeeling: {
+        description: "Often called the 'City of Lakes' and the 'Venice of the East', Udaipur is a city of romantic landscapes and royal grandeur, with stunning palaces and serene lakes.",
+        highlights: ["City Palace, Udaipur", "Lake Pichola & Jag Mandir", "Saheliyon Ki Bari", "Monsoon Palace (Sajjan Garh)"],
+        gallery: [
+            "https://images.unsplash.com/photo-1577089907583-9a8d65a783a5?q=80&w=1974",
+            "https://images.unsplash.com/photo-1547293513-2457452b254a?q=80&w=2070",
+            "https://images.unsplash.com/photo-1615835924238-573e35d13719?q=80&w=1974",
+        ]
+    },
+    // Add other destinations as needed
 };

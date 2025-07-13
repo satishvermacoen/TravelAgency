@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { topDestinationsData } from '../data/topdestination';
+import Image from 'next/image';
 
 // Assuming a reusable Section component exists. If not, you can define it here or import it.
 const Section = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
@@ -45,9 +46,10 @@ const TopDestinations = () => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }}
                     >
-                        <img 
+                        <Image 
                             src={destinations[activeSlide].img} 
-                            alt={destinations[activeSlide].name} 
+                            alt={destinations[activeSlide].name}
+                            width={800} height={600} 
                             className="w-full h-full object-cover"
                         />
                     </motion.div>
@@ -83,13 +85,13 @@ const TopDestinations = () => {
                             }`}
                             whileHover={{ scale: activeSlide === index ? 1.1 : 1.05 }}
                         >
-                            <img src={dest.img} alt={dest.name} className="w-full h-full object-cover" />
+                            <Image src={dest.img} alt={dest.name} width={800} height={600} className="w-full h-full object-cover" />
                         </motion.div>
                     ))}
                 </div>
             </div>
         </Section>
     );
-};
+}; 
 
 export default TopDestinations;

@@ -79,7 +79,7 @@ export const allPackages: Package[] = [
     },
     // Add more Indian packages here...
     { 
-        id: 1, 
+        id: 3, 
         slug: 'golden-triangle-tour',
         title: 'Golden Triangle Tour', 
         location: 'Delhi, Agra, Jaipur', 
@@ -106,7 +106,7 @@ export const allPackages: Package[] = [
         ]
     },
     { 
-        id: 2, 
+        id: 4, 
         slug: 'kerala-backwater-bliss',
         title: 'Kerala Backwater Bliss', 
         location: 'Alleppey, Munnar, Thekkady', 
@@ -132,7 +132,7 @@ export const allPackages: Package[] = [
     },
     // Add more Indian packages here...
     { 
-        id: 1, 
+        id: 5, 
         slug: 'golden-triangle-tour',
         title: 'Golden Triangle Tour', 
         location: 'Delhi, Agra, Jaipur', 
@@ -159,7 +159,7 @@ export const allPackages: Package[] = [
         ]
     },
     { 
-        id: 2, 
+        id: 6, 
         slug: 'kerala-backwater-bliss',
         title: 'Kerala Backwater Bliss', 
         location: 'Alleppey, Munnar, Thekkady', 
@@ -185,7 +185,7 @@ export const allPackages: Package[] = [
     },
     // Add more Indian packages here...
     { 
-        id: 1, 
+        id: 7, 
         slug: 'golden-triangle-tour',
         title: 'Golden Triangle Tour', 
         location: 'Delhi, Agra, Jaipur', 
@@ -212,7 +212,7 @@ export const allPackages: Package[] = [
         ]
     },
     { 
-        id: 2, 
+        id: 8, 
         slug: 'kerala-backwater-bliss',
         title: 'Kerala Backwater Bliss', 
         location: 'Alleppey, Munnar, Thekkady', 

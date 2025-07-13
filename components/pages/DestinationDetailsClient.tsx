@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Check, Star, Calendar, Clock, Sun, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function DestinationDetailsClient({ destination }: { destination: any }) {
     const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -144,7 +145,7 @@ export default function DestinationDetailsClient({ destination }: { destination:
                                 onClick={() => setLightboxImage(img)}
                                 layoutId={img}
                             >
-                                <img src={img} alt={`Gallery image of ${destination.name} ${i + 1}`} className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
+                                <Image src={img} width={800} height={600} alt={`Gallery image of ${destination.name} ${i + 1}`} className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300" />
                             </motion.div>
                         ))}
                     </div>

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Star, Search, ChevronDown, Heart } from 'lucide-react';
 import { allPackages, Package } from '@/components/data/packagesIndia'; // Assuming data is in app/data/packages.ts
 import Link from 'next/link';
+import Image from 'next/image';
 
 // --- Reusable Section Component ---
 const Section = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
@@ -29,7 +30,7 @@ const PackageCard = ({ pkg }: { pkg: Package }) => (
             className="bg-white rounded-xl shadow-lg overflow-hidden group border border-transparent hover:border-blue-500 transition-all duration-300 h-full flex flex-col cursor-pointer"
         >
             <div className="relative">
-                <img src={pkg.imageUrl} alt={pkg.title} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
+                <Image src={pkg.imageUrl} width={800} height={600} alt={pkg.title} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
                 <div className="absolute top-4 left-4 bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-md">{pkg.type}</div>
             </div>
             <div className="p-6 flex flex-col flex-grow">

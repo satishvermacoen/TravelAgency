@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { topDestinationsData } from '@/components/data/topdestination';
+import Image from 'next/image';
 
 // Assuming a reusable Section component exists. If not, you can define it here or import it.
 const Section = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
@@ -45,8 +46,9 @@ const TopDestinations = () => {
                                 viewport={{ once: true, amount: 0.4 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 whileHover={{ y: -8 }}
-                            >
-                                <img src={dest.img} alt={dest.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                            >   
+                               
+                                <Image src={dest.img} alt={dest.name} width={800} height={600} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent transition-all duration-300 group-hover:from-black/80"></div>
                                 <div className="relative h-full flex flex-col justify-end p-6 text-white">
                                     <h3 className="text-3xl md:text-4xl font-extrabold" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>

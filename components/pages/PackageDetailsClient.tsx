@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Star, Calendar, Users, Check, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Package } from '@/components/data/packagesIndia'; // Assuming the Package type is exported from your data file
+import Image from 'next/image';
 
 // --- Reusable Section Component ---
 const Section = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
@@ -166,7 +167,7 @@ export default function PackageDetailsClient({ packageDetails, relatedPackages }
                                                     onClick={() => setLightboxImage(img)}
                                                     layoutId={img}
                                                 >
-                                                    <img src={img} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover" />
+                                                    <Image src={img} width={800} height={600} alt={`Gallery image ${i + 1}`} className="w-full h-full object-cover" />
                                                 </motion.div>
                                             ))}
                                         </div>
@@ -184,7 +185,7 @@ export default function PackageDetailsClient({ packageDetails, relatedPackages }
                                 <div className="space-y-4">
                                     {relatedPackages.map((pkg) => (
                                         <Link href={`/packages/${pkg.slug}`} key={pkg.id} className="flex items-center gap-4 group">
-                                            <img src={pkg.imageUrl} alt={pkg.title} className="w-24 h-24 object-cover rounded-lg" />
+                                            <Image src={pkg. imageUrl} width={800} height={600} alt={pkg.title} className="w-24 h-24 object-cover rounded-lg" />
                                             <div>
                                                 <h4 className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">{pkg.title}</h4>
                                                 <p className="text-sm text-blue-500 flex items-center gap-1">View Details <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" /></p>
