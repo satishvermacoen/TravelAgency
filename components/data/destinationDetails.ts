@@ -58,3 +58,9 @@ export const destinationDetailsData = {
     },
     // Add other destinations as needed
 };
+
+
+ export const relatedToursData = [
+        { slug: 'rajasthan-royal-tour', title: 'Royal Rajasthan', duration: '10 Days', price: 95000, destination: 'Jaipur' },
+        { slug: 'jaipur-express-getaway', title: 'Jaipur Express Getaway', duration: '4 Days', price: 35000, destination: 'Jaipur' },
+    ];

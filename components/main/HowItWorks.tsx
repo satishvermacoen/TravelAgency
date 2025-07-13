@@ -12,7 +12,7 @@ const HowItWorks = () => (
     <Section>
         <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900">Your Journey Starts Here</h2>
-            <p className="text-lg mt-2 text-gray-600">In 3 simple steps, we'll turn your travel dreams into reality.</p>
+            <p className="text-lg mt-2 text-gray-600">In 3 simple steps, we&aposll turn your travel dreams into reality.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 text-center">
             <div className="space-y-4">
@@ -27,7 +27,7 @@ const HowItWorks = () => (
                     <MapPin size={40} />
                 </div>
                 <h3 className="text-xl font-semibold">2. Get a Custom Itinerary</h3>
-                <p className="text-gray-600">We'll craft a personalized, day-by-day plan complete with unique experiences.</p>
+                <p className="text-gray-600">We&aposll craft a personalized, day-by-day plan complete with unique experiences.</p>
             </div>
             <div className="space-y-4">
                 <div className="mx-auto bg-blue-100 text-blue-600 rounded-full h-20 w-20 flex items-center justify-center">

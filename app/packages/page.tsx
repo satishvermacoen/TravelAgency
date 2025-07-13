@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Star, Search, ChevronDown, Heart } from 'lucide-react';
+import { MapPin, Star, Search, ChevronDown } from 'lucide-react';
 import { allPackages, Package } from '@/components/data/packagesIndia'; // Assuming data is in app/data/packages.ts
 import Link from 'next/link';
 import Image from 'next/image';

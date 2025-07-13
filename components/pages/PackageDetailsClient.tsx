@@ -7,14 +7,6 @@ import Link from 'next/link';
 import { Package } from '@/components/data/packagesIndia'; // Assuming the Package type is exported from your data file
 import Image from 'next/image';
 
-// --- Reusable Section Component ---
-const Section = ({ children, className = '' }: { children: React.ReactNode, className?: string }) => (
-  <section className={`py-12 md:py-16 ${className}`}>
-    <div className="container mx-auto px-6">
-      {children}
-    </div>
-  </section>
-);
 
 // --- Reusable Tab Button Component ---
 const TabButton = ({ children, isActive, onClick }: { children: React.ReactNode, isActive: boolean, onClick: () => void }) => (
@@ -143,13 +135,13 @@ export default function PackageDetailsClient({ packageDetails, relatedPackages }
                                     {activeTab === 'inclusions' && (
                                         <div className="grid md:grid-cols-2 gap-8">
                                             <div>
-                                                <h3 className="text-xl font-bold text-green-600 mb-4 flex items-center gap-2"><Check /> What's Included</h3>
+                                                <h3 className="text-xl font-bold text-green-600 mb-4 flex items-center gap-2"><Check /> What&aposs Included</h3>
                                                 <ul className="space-y-2">
                                                     {packageDetails.inclusions.map((item, i) => <li key={i} className="flex items-start gap-2"><Check size={18} className="text-green-500 mt-1 flex-shrink-0" /> <span>{item}</span></li>)}
                                                 </ul>
                                             </div>
                                             <div>
-                                                <h3 className="text-xl font-bold text-red-600 mb-4 flex items-center gap-2"><X /> What's Not Included</h3>
+                                                <h3 className="text-xl font-bold text-red-600 mb-4 flex items-center gap-2"><X /> What&aposs Not Included</h3>
                                                 <ul className="space-y-2">
                                                     {packageDetails.exclusions.map((item, i) => <li key={i} className="flex items-start gap-2"><X size={18} className="text-red-500 mt-1 flex-shrink-0" /> <span>{item}</span></li>)}
                                                 </ul>

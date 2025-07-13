@@ -2,18 +2,38 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Check, Star, Calendar, Clock, Sun, X, ArrowRight } from 'lucide-react';
+import { Star, Calendar, Clock, Sun, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { relatedToursData } from '../data/destinationDetails';
 
-export default function DestinationDetailsClient({ destination }: { destination: any }) {
+interface Destination {
+    slug: string;
+    name: string;
+    img: string;
+    tagline?: string;
+    description: string;
+    highlights: string[];
+    gallery: string[];
+    bestTimeToVisit?: string;
+    idealDuration?: string;
+    category?: string;
+}
+
+interface RelatedTour {
+    slug: string;
+    title: string;
+    duration: string;
+    destination: string;
+    price: number;
+}
+
+export default function DestinationDetailsClient({ destination }: { destination: Destination }) {
     const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
     // Mock related tours data. In a real app, this would be passed as a prop.
-    const relatedTours = [
-        { slug: 'rajasthan-royal-tour', title: 'Royal Rajasthan', duration: '10 Days', price: 95000 },
-        { slug: 'jaipur-express-getaway', title: 'Jaipur Express Getaway', duration: '4 Days', price: 35000 },
-    ];
+    const relatedTours: RelatedTour[] = relatedToursData.filter((tour) => tour.destination === destination.name);
+
 
     return (
         <div className="bg-white text-black">

@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image'; // Import the Next.js Image component
-import { Target, Eye, Linkedin, Twitter, Heart, Globe, Star } from 'lucide-react';
+import { Target, Eye, Heart, Globe, Star } from 'lucide-react';
 import { motion, useInView, useScroll, useTransform, animate } from 'framer-motion';
 import { dataTeam, dataTimeline } from '@/components/data/aboutData';
+import Link from 'next/link';
 
 // --- Reusable & Enhanced Components ---
 
@@ -60,8 +61,8 @@ const TeamMember = ({ name, role, imageUrl, social }: { name: string, role: stri
       <h3 className="text-2xl font-bold">{name}</h3>
       <p className="text-blue-300 font-medium mb-4">{role}</p>
       <div className="flex justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <a href={social.linkedin} aria-label={`${name}'s LinkedIn`} className="hover:text-blue-400"><Linkedin /></a>
-        <a href={social.twitter} aria-label={`${name}'s Twitter`} className="hover:text-sky-400"><Twitter /></a>
+        <Link href={social.linkedin} aria-label={`${name}&aposs LinkedIn`} className="hover:text-blue-400" />
+        <Link href={social.twitter} aria-label={`${name}&aposs Twitter`} className="hover:text-sky-400" />
       </div>
     </div>
   </motion.div>
@@ -127,7 +128,7 @@ const AboutUsPage = () => {
         <motion.div style={{ y: textY }} className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
           <h1 className="text-5xl md:text-7xl font-extrabold">Our Story</h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl">
-            We believe travel is more than just seeing new places. It's about creating lasting memories and forging new connections.
+            We believe travel is more than just seeing new places. It&apos;s about creating lasting memories and forging new connections.
           </p>
         </motion.div>
       </div>
@@ -173,7 +174,7 @@ const AboutUsPage = () => {
       <Section className="bg-gray-100">
         <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900">Our Impact</h2>
-            <p className="text-lg mt-2 text-gray-600">A testament to the journeys we've shared.</p>
+            <p className="text-lg mt-2 text-gray-600">A testament to the journeys we&aposve shared.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="bg-white p-8 rounded-lg shadow-lg"><Heart className="mx-auto text-red-500 mb-4" size={48} /><p className="text-5xl font-bold text-blue-600"><AnimatedCounter to={7500} />+</p><p className="text-xl text-gray-700 mt-2">Happy Travelers</p></div>
@@ -215,7 +216,7 @@ const AboutUsPage = () => {
         <Section className="relative z-10">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="text-4xl font-bold">Ready for Your Next Adventure?</h2>
-              <p className="mt-4 text-lg text-blue-200">Let's write the next chapter of your travel story together. Explore our curated tours or get in touch to plan a custom journey.</p>
+              <p className="mt-4 text-lg text-blue-200">Let&aposs write the next chapter of your travel story together. Explore our curated tours or get in touch to plan a custom journey.</p>
               <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
                 <button className="bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition-all duration-300 transform hover:scale-105">Explore Tours</button>
                 <button className="border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">Contact Us</button>

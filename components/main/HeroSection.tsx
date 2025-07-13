@@ -1,6 +1,7 @@
 "use client"
 
 import {motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const HeroSection = () => {
@@ -68,13 +69,15 @@ const HeroSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.9 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     className="mt-8"
                 >
-                    <a href="/destinations">
-                        <button className="bg-blue-600 text-white font-bold py-4 px-10 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 text-lg">
+                    <Link href="/destinations">
+                        <button className="cursor-pointer bg-blue-600 text-white font-bold py-4 px-10 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 text-lg">
                             Explore Tours
                         </button>
-                    </a>
+                    </Link>
                 </motion.div>
             </div>
         </div>

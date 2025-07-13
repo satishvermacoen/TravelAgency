@@ -120,7 +120,7 @@ const FancyHeader = () => {
                 </button>
             </div>
             <motion.nav className="flex flex-col items-center justify-center flex-grow space-y-6">
-              {navLinks.map((link, i) => (
+              {navLinks.map((link) => (
                 // By removing the explicit initial/animate props here, the child
                 // will correctly inherit the animation sequence from its parent.
                 <motion.div key={link.href} variants={mobileLinkVariants}>

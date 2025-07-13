@@ -78,7 +78,7 @@ const FaqPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.2 }}
                     >
-                        Have a question? We're here to help. Find answers to common queries below.
+                        Have a question? We&aposre here to help. Find answers to common queries below.
                     </motion.p>
                 </div>
             </div>
@@ -134,7 +134,7 @@ const FaqPage = () => {
                             <MessageSquare className="mx-auto text-blue-600 mb-4" size={48} />
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Still have questions?</h3>
                             <p className="text-gray-600 mb-6">
-                                If you can't find the answer you're looking for, please don't hesitate to reach out to our friendly support team.
+                                If you can&apost find the answer you&aposre looking for, please don&apost hesitate to reach out to our friendly support team.
                             </p>
                             <a href="/contact">
                                 <button className="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">

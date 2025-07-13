@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Shield } from 'lucide-react';
 import { termsData } from '@/components/data/termsData';
 
 // --- Mock Data for T&C Sections ---

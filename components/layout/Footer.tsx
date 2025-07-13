@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 // You'll need to add these icons to your project if you haven't already:
 // npm install lucide-react
