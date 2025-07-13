@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { topDestinationsData } from '../data/topdestination';
+import { topDestinationsData } from '../data/destinationDetails';
 import Image from 'next/image';
 
 // Assuming a reusable Section component exists. If not, you can define it here or import it.

@@ -1,34 +1,17 @@
+import { destinationsData, getDestinationBySlug } from "@/components/data/destinationDetails";
 import DestinationDetailsClient from "@/components/pages/DestinationDetailsClient";
-import { destinationDetailsData } from "@/components/data/destinationDetails";
-import { topDestinationsData } from "@/components/data/topdestination";
 
-// This function tells Next.js which pages to pre-render at build time
 export async function generateStaticParams() {
-  return topDestinationsData.map((dest) => ({
+  return destinationsData.map((dest) => ({
     slug: dest.slug,
   }));
 }
 
-// Helper function to get all data for a destination
-const getDestinationData = (slug: string) => {
-    const basicInfo = topDestinationsData.find(dest => dest.slug === slug);
-    const detailedInfo = destinationDetailsData[slug as keyof typeof destinationDetailsData];
-
-    if (!basicInfo || !detailedInfo) {
-        return null;
-    }
-
-    // Combine the data from both sources
-    return {
-        ...basicInfo,
-        ...detailedInfo,
-    };
-};
-
-
 // --- Main Page Component (Server Component) ---
-const DestinationPage = ({ params }: { params: { slug: string } }) => {
-    const destination = getDestinationData(params.slug);
+// The fix is to define the props type directly (inline) here.
+// This makes the expected props explicit and resolves the TypeScript error.
+const DestinationDetailsPage = ({ params }: { params: { slug: string } }) => { 
+    const destination = getDestinationBySlug(params.slug);
 
     if (!destination) {
         return (
@@ -38,8 +21,10 @@ const DestinationPage = ({ params }: { params: { slug: string } }) => {
         );
     }
 
-    // Render the Client Component and pass the combined data as props
-    return <DestinationDetailsClient destination={destination} />;
-};
+    // This component now correctly receives the destination data.
+    return (
+        <DestinationDetailsClient destination={destination} />
+    );
+}
 
-export default DestinationPage;
+export default DestinationDetailsPage;

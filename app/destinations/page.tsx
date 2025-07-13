@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { topDestinationsData } from '@/components/data/topdestination';
+import { getDestinations } from '@/components/data/destinationDetails';
 import Image from 'next/image';
 
 // Assuming a reusable Section component exists. If not, you can define it here or import it.
@@ -15,9 +15,23 @@ const Section = ({ children, className = '' }: { children: React.ReactNode, clas
   </section>
 );
 
+export interface Destination {
+  slug: string;
+  name: string;
+  tagline: string;
+  img: string;
+  description: string;
+  icon: 'Castle' | 'Palmtree' | 'Mountain' | 'Landmark';
+  gallery: string[];
+  highlights: string[];
+  bestTimeToVisit: string;
+  idealDuration: string;
+  category: string;
+}
+
 const TopDestinations = () => {
     // Data is imported from a separate file.
-    const destinations = topDestinationsData;
+    const destinations: Destination[] = getDestinations();
 
     return (
         <Section className="bg-white">
