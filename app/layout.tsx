@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BRON TO FLY",
+  title: "Travel Website",
   description: "See The World",
-  icons: "/logo.png",
+  
 };
 
 export default function RootLayout({

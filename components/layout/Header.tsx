@@ -61,9 +61,9 @@ const FancyHeader = () => {
         <div className="container mx-auto px-6">
           <div className="py-4 flex justify-between items-center">
             <Link href="/" className="flex items-center space-x-2">
-            <img src="/logo.png" alt="Bron To Fly Logo" className="h-8 w-8" />
+            {/* <img src="/logo.png" alt="Bron To Fly Logo" className="h-8 w-8" /> */}
             <span className={`text-2xl font-bold transition-colors ${hasScrolled ? 'text-gray-900' : 'text-white'}`}>
-                Brontofly
+                Safar
               </span>
             </Link>
 
