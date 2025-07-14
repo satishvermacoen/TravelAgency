@@ -1,10 +1,9 @@
-// components/layout/OfferPopup.tsx
-
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Loader2, Gift } from 'lucide-react';
+import axios from 'axios'; // Import axios
 
 interface OfferPopupProps {
   isOpen: boolean;
@@ -50,20 +49,32 @@ const OfferPopup = ({ isOpen, onClose }: OfferPopupProps) => {
         setSubmitStatus(null);
         setErrors({});
 
-        // Simulate sending email
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        // This is where you would integrate an email sending service (e.g., EmailJS, SendGrid)
-        // For now, we'll simulate a successful submission.
-        console.log("Form data to be sent:", formData);
+        try {
+            // Use axios.post to send the data
+            const response = await axios.post('/api/getoffer', formData);
 
-        setSubmitStatus('success');
-        setIsSubmitting(false);
-        // Hide the form after a successful submission and a short delay
-        setTimeout(() => {
-            onClose();
-        }, 3000);
+            // Axios considers non-2xx responses as errors, so this will run on success
+            setSubmitStatus('success');
+            setTimeout(() => {
+                onClose();
+            }, 3000);
+
+        } catch (error) {
+            console.error("Submission error:", error);
+            setSubmitStatus('error');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
+    
+    // Reset form state when the popup is closed and then reopened
+    useEffect(() => {
+        if (isOpen) {
+            setSubmitStatus(null);
+            setFormData({ name: '', email: '', phone: '', destination: '' });
+            setErrors({});
+        }
+    }, [isOpen]);
 
     return (
         <AnimatePresence>
@@ -73,6 +84,7 @@ const OfferPopup = ({ isOpen, onClose }: OfferPopupProps) => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                    onClick={onClose}
                 >
                     <motion.div
                         initial={{ scale: 0.9, y: -20 }}
@@ -80,6 +92,7 @@ const OfferPopup = ({ isOpen, onClose }: OfferPopupProps) => {
                         exit={{ scale: 0.9, y: 20, opacity: 0 }}
                         transition={{ type: 'spring', stiffness: 200, damping: 25 }}
                         className="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl p-8"
+                        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
                     >
                         <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-gray-800 transition-colors">
                             <X size={24} />
@@ -99,7 +112,7 @@ const OfferPopup = ({ isOpen, onClose }: OfferPopupProps) => {
                                 </motion.div>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+                            <form onSubmit={handleSubmit} className="mt-8 space-y-4 text-black">
                                 <div className="relative">
                                     <input type="text" id="name" value={formData.name} onChange={handleInputChange} className={`peer block w-full px-4 py-3 bg-gray-100 border-2 rounded-md placeholder-transparent focus:ring-blue-500 focus:border-blue-500 ${errors.name ? 'border-red-500' : 'border-transparent'}`} placeholder="Full Name" />
                                     <label htmlFor="name" className={`absolute left-4 -top-2.5 text-sm text-gray-500 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-sm ${errors.name ? 'text-red-600' : 'peer-focus:text-blue-600'}`}>Full Name</label>

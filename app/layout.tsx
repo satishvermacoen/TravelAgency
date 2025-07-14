@@ -36,7 +36,7 @@ export default function RootLayout({
       const timer = setTimeout(() => {
         setIsPopupOpen(true);
         sessionStorage.setItem('hasSeenOfferPopup', 'true');
-      }, 6000); // Show popup after 3 seconds
+      }, 3000); // Show popup after 3 seconds
 
       return () => clearTimeout(timer);
     }
