@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+// Import the 'Variants' type from framer-motion
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { Menu, X, Compass } from 'lucide-react';
 
 const FancyHeader = () => {
@@ -11,7 +12,6 @@ const FancyHeader = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const pathname = usePathname();
 
-  // --- Effect to handle scroll detection ---
   useEffect(() => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 10);
@@ -28,8 +28,8 @@ const FancyHeader = () => {
     { href: "/contact", label: "Contact" },
   ];
 
-  // --- Animation Variants ---
-  const mobileMenuVariants = {
+  // --- Animation Variants (with explicit Variants type) ---
+  const mobileMenuVariants: Variants = {
     hidden: { 
       x: '100%',
       transition: { type: 'spring', stiffness: 300, damping: 30 }
@@ -40,13 +40,13 @@ const FancyHeader = () => {
         type: 'spring', 
         stiffness: 300, 
         damping: 30,
-        staggerChildren: 0.07, // This will stagger the animation of children
+        staggerChildren: 0.07,
         delayChildren: 0.2 
       }
     },
   };
 
-  const mobileLinkVariants = {
+  const mobileLinkVariants: Variants = {
       hidden: { opacity: 0, y: 20 },
       visible: {
           opacity: 1,
@@ -61,8 +61,7 @@ const FancyHeader = () => {
         <div className="container mx-auto px-6">
           <div className="py-4 flex justify-between items-center">
             <Link href="/" className="flex items-center space-x-2">
-            {/* <img src="/logo.png" alt="Bron To Fly Logo" className="h-8 w-8" /> */}
-            <span className={`text-2xl font-bold transition-colors ${hasScrolled ? 'text-gray-900' : 'text-white'}`}>
+              <span className={`text-2xl font-bold transition-colors ${hasScrolled ? 'text-gray-900' : 'text-white'}`}>
                 Safar
               </span>
             </Link>
@@ -121,8 +120,6 @@ const FancyHeader = () => {
             </div>
             <motion.nav className="flex flex-col items-center justify-center flex-grow space-y-6">
               {navLinks.map((link) => (
-                // By removing the explicit initial/animate props here, the child
-                // will correctly inherit the animation sequence from its parent.
                 <motion.div key={link.href} variants={mobileLinkVariants}>
                   <Link
                     href={link.href}

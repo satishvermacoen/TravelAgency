@@ -1,5 +1,4 @@
 // This file holds the detailed information for each destination.
-// This file acts as a mock database for destination information.
 // In a real-world application, this data would likely come from a CMS or a database.
 
 export interface Destination {
@@ -14,6 +13,15 @@ export interface Destination {
   bestTimeToVisit: string;
   idealDuration: string;
   category: string;
+}
+
+// This type is used by page components to structure related tour data.
+export interface RelatedTour {
+    slug: string;
+    title: string;
+    duration: string;
+    destination: string;
+    price: number;
 }
 
 export const destinationsData: Destination[] = [
@@ -38,33 +46,33 @@ export const destinationsData: Destination[] = [
         name: 'Goa', 
         slug: 'goa', 
         img: 'https://travelwebappp.blob.core.windows.net/brontofly-travelwebapp/images/pexels-cottonbro-4430322.jpg', 
-        tagline: 'The Land of Kings',
-        description: 'Explore majestic forts, vibrant markets, and the vast Thar Desert in this princely state. Rajasthan is a land of vibrant culture, royal heritage, and epic tales of valor that echo through its ancient architecture.',
-        icon: 'Castle',
+        tagline: 'The Pearl of the Orient',
+        description: 'Famous for its pristine beaches, vibrant nightlife, and Portuguese heritage, Goa is a slice of paradise on the west coast of India. Enjoy the sun, sand, and sea in this lively state.',
+        icon: 'Palmtree',
         gallery: [
             'https://images.unsplash.com/photo-1547293513-2457452b254a?q=80&w=2070',
             'https://images.unsplash.com/photo-1603292929896-3905d802d09c?q=80&w=2070',
             'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?q=80&w=1974',
         ],
-        highlights: ['Amber Fort in Jaipur', 'Mehrangarh Fort in Jodhpur', 'Camel Safari in Jaisalmer', 'City Palace of Udaipur'],
-        bestTimeToVisit: 'October to March',
-        idealDuration: '7-10 Days',
-        category: 'Cultural & Heritage'
+        highlights: ['Baga Beach', 'Old Goa Churches', 'Dudhsagar Falls', 'Anjuna Flea Market'],
+        bestTimeToVisit: 'November to February',
+        idealDuration: '4-7 Days',
+        category: 'Beach & Nightlife'
     },
     {   name: 'Udaipur', 
         slug: 'udaipur', 
         img: 'https://travelwebappp.blob.core.windows.net/brontofly-travelwebapp/images/pexels-hemant-singh-chauhan-639506990-18526644.jpg',
-        tagline: 'The Land of Kings',
-        description: 'Explore majestic forts, vibrant markets, and the vast Thar Desert in this princely state. Rajasthan is a land of vibrant culture, royal heritage, and epic tales of valor that echo through its ancient architecture.',
+        tagline: 'The City of Lakes',
+        description: 'Known for its romantic lakes, opulent palaces, and vibrant history, Udaipur is a jewel in the heart of Rajasthan. A truly mesmerizing destination.',
         icon: 'Castle',
         gallery: [
             'https://images.unsplash.com/photo-1547293513-2457452b254a?q=80&w=2070',
             'https://images.unsplash.com/photo-1603292929896-3905d802d09c?q=80&w=2070',
             'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?q=80&w=1974',
         ],
-        highlights: ['Amber Fort in Jaipur', 'Mehrangarh Fort in Jodhpur', 'Camel Safari in Jaisalmer', 'City Palace of Udaipur'],
-        bestTimeToVisit: 'October to March',
-        idealDuration: '7-10 Days',
+        highlights: ['City Palace', 'Lake Pichola', 'Jag Mandir', 'Saheliyon Ki Bari'],
+        bestTimeToVisit: 'September to March',
+        idealDuration: '3-4 Days',
         category: 'Cultural & Heritage'
     },
     {
@@ -137,6 +145,7 @@ export const destinationsData: Destination[] = [
         category: 'Spiritual & Cultural'
     }
 ];
+
 export const topDestinationsData = [
     { name: 'Jaipur', slug: 'jaipur', img: 'https://travelwebappp.blob.core.windows.net/brontofly-travelwebapp/images/pexels-sbsoneji-3581364.jpg', gridClass: 'md:col-span-1' },
     { name: 'Goa', slug: 'goa', img: 'https://travelwebappp.blob.core.windows.net/brontofly-travelwebapp/images/pexels-cottonbro-4430322.jpg', gridClass: 'md:col-span-2 md:row-span-2' },
@@ -145,6 +154,7 @@ export const topDestinationsData = [
     { name: 'Munnar', slug: 'munnar', img: 'https://travelwebappp.blob.core.windows.net/brontofly-travelwebapp/images/pexels-anil-kumar-402481747-15211517.jpg', gridClass: 'md:col-span-1' },
     { name: 'Darjeeling', slug: 'darjeeling', img: 'https://travelwebappp.blob.core.windows.net/brontofly-travelwebapp/images/pexels-soumalya-halder-2148057301-32924711.jpg', gridClass: 'md:col-span-1' },
 ];
+
 // Function to fetch all destination data
 export const getDestinations = () => {
   return destinationsData;
@@ -155,9 +165,17 @@ export const getDestinationBySlug = (slug: string) => {
   return destinationsData.find((dest) => dest.slug === slug);
 };
 
+// Function to fetch all destination data
 
 
- export const relatedToursData = [
+
+
+ export const relatedToursData: RelatedTour[] = [
         { slug: 'rajasthan-royal-tour', title: 'Royal Rajasthan', duration: '10 Days', price: 95000, destination: 'Jaipur' },
         { slug: 'jaipur-express-getaway', title: 'Jaipur Express Getaway', duration: '4 Days', price: 35000, destination: 'Jaipur' },
     ];
+
+
+export const getRelatedTours = () => {
+  return relatedToursData;
+};
