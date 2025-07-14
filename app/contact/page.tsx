@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MapPin, ChevronDown, Send, Loader2 } from 'lucide-react';
+import axios from 'axios'; // Import axios
 
 // --- Reusable Components ---
 
@@ -103,16 +104,18 @@ const ContactPage = () => {
         setSubmitStatus(null);
         setErrors({});
         
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        const isSuccess = Math.random() > 0.2;
-        if (isSuccess) {
+        try {
+            // Use axios to send the form data to the new API endpoint
+            await axios.post('/api/contact', formData);
             setSubmitStatus('success');
+            // Clear the form on successful submission
             setFormData({ name: '', email: '', subject: '', message: '' });
-        } else {
+        } catch (error) {
+            console.error('Contact form submission error:', error);
             setSubmitStatus('error');
+        } finally {
+            setIsSubmitting(false);
         }
-        setIsSubmitting(false);
     };
 
     const faqData = [
@@ -153,7 +156,7 @@ const ContactPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            We&aposre here to help you plan your next unforgettable adventure.
+            We&apos;re here to help you plan your next unforgettable adventure.
           </motion.p>
         </div>
       </div>
@@ -202,10 +205,6 @@ const ContactPage = () => {
                             className="w-full flex justify-center items-center gap-2 bg-blue-600 text-white font-bold py-3 px-6 rounded-full hover:bg-blue-700 transition-all duration-300 disabled:bg-blue-400"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            animate={{
-                                scale: isSubmitting ? 1 : [1, 1.02, 1],
-                                transition: { duration: 1.5, repeat: Infinity }
-                            }}
                         >
                             {isSubmitting ? <><Loader2 className="animate-spin" /> Submitting...</> : <><Send size={18}/> Send Message</>}
                         </motion.button>
@@ -274,7 +273,7 @@ const ContactPage = () => {
       <Section className="bg-gray-100">
         <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900">Frequently Asked Questions</h2>
-            <p className="text-lg mt-2 text-gray-600">Have questions? We&aposve got answers. Here are some of the most common questions we receive.</p>
+            <p className="text-lg mt-2 text-gray-600">Have questions? We&apos;ve got answers. Here are some of the most common questions we receive.</p>
         </div>
         <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-2xl">
             {faqData.map((faq, index) => (
