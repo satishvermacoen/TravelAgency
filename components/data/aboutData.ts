@@ -13,3 +13,12 @@ export const dataTimeline = [
     { year: "2025", title: "Looking Ahead", description: "Expanding our sustainable travel initiatives and launching new, undiscovered destinations.", icon: Rocket },
 ];
 ;
+
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Travel Website",
+  description: "See The World",
+  
+};

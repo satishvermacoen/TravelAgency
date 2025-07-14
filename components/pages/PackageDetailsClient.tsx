@@ -6,7 +6,7 @@ import { MapPin, Star, Calendar, Users, Check, X, ArrowRight } from 'lucide-reac
 import Link from 'next/link';
 import { Package } from '@/components/data/packagesIndia'; // Assuming the Package type is exported from your data file
 import Image from 'next/image';
-
+import { useOfferPopup } from '@/contexts/OfferPopupContext'; // Import the custom hook
 
 // --- Reusable Tab Button Component ---
 const TabButton = ({ children, isActive, onClick }: { children: React.ReactNode, isActive: boolean, onClick: () => void }) => (
@@ -24,6 +24,7 @@ const TabButton = ({ children, isActive, onClick }: { children: React.ReactNode,
 export default function PackageDetailsClient({ packageDetails, relatedPackages }: { packageDetails: Package, relatedPackages: Package[] }) {
     const [activeTab, setActiveTab] = useState('itinerary');
     const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+    const { openPopup } = useOfferPopup(); // Get the openPopup function from the context
 
     return (
         <div className="bg-gray-50 text-black">
@@ -84,7 +85,11 @@ export default function PackageDetailsClient({ packageDetails, relatedPackages }
                     </div>
                     <div className="flex items-center gap-4">
                         <span className="text-2xl font-bold text-gray-900">₹{packageDetails.price.toLocaleString('en-IN')}</span>
-                        <button className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105">
+                        {/* Updated button to trigger the popup */}
+                        <button 
+                            onClick={openPopup}
+                            className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+                        >
                             Book Now
                         </button>
                     </div>
