@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Calendar, Clock, Sun, X, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import type { Destination, RelatedTour } from '../data/destinationDetails';
+import type { Destination, RelatedTour } from '../data/destinations/destinationDetails';
 
 // --- Type Definitions ---
 interface DestinationDetailsClientProps {

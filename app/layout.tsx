@@ -5,7 +5,6 @@ import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { useEffect, useState } from "react";
-import OfferPopup from "@/components/layout/OfferPopup";
 import { metadata } from "@/components/data/aboutData";
 import { OfferPopupProvider } from "@/contexts/OfferPopupContext";
 

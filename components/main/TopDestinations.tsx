@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { topDestinationsData } from '../data/destinationDetails';
+import { topDestinationsData } from '../data/topDestinationsData';
 import Image from 'next/image';
 
 // Assuming a reusable Section component exists. If not, you can define it here or import it.
@@ -16,7 +16,7 @@ const Section = ({ children, className = '' }: { children: React.ReactNode, clas
 
 const TopDestinations = () => {
     // Take the first 4 destinations for the slideshow
-    const destinations = topDestinationsData.slice(0, 6);
+    const destinations = topDestinationsData;
     const [activeSlide, setActiveSlide] = useState(0);
 
     // Auto-scroll logic

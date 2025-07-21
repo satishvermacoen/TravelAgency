@@ -18,7 +18,7 @@ export const dataTimeline = [
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Travel Website",
-  description: "See The World",
-  
+  title: "Brontofly | Unforgettable Journeys in India",
+  description: "Discover and book expertly crafted tour packages across India with Brontofly. We create personalized travel experiences to the most breathtaking destinations.",
+  icons: "https://travelwebappp.blob.core.windows.net/brontofly-travelwebapp/images-a/logo.png",
 };

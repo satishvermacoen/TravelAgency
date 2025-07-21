@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getDestinations, getDestinationBySlug } from "@/components/data/destinationDetails";
+import { getDestinations, getDestinationBySlug } from "@/components/data/destinations/destinationDetails";
 import { allPackages } from '@/components/data/packagesIndia';
 import DestinationDetailsClient from "@/components/pages/DestinationDetailsClient";
 
