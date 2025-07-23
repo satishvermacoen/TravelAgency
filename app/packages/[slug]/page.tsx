@@ -1,39 +1,54 @@
-import { getPackages, getPackageBySlug } from '@/components/data/packagesIndia';
-import PackageDetailsClient from '@/components/pages/PackageDetailsClient';
+// app/packages/[slug]/page.tsx
+import { getPackageBySlug } from '@/lib/data';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import PackageDetailsClient from '@/components/pages/PackageDetailsClient';
 
-// This function tells Next.js which pages to pre-render at build time.
-export function generateStaticParams() {
-  const packages = getPackages();
-  return packages.map((pkg) => ({
-    slug: pkg.slug,
-  }));
-}
-
-// --- Main Page Component (Server Component) ---
-const PackagePage = async ({ params }: { params: Promise<{ slug: string }>;
-}) => {
-    const { slug } = await params ;
-
-    const packageDetails = getPackageBySlug( slug );
-    
-    // If no package is found, render the 404 page.
-    if (!packageDetails) {
-        notFound();
-    }
-
-    // Filter out the current package to show other related packages.
-    const relatedPackages = getPackages()
-        .filter(p => p.slug !== slug  && p.type === packageDetails.type)
-
-    // Render the Client Component and pass the data as props.
-    return (
-        <PackageDetailsClient 
-            packageDetails={packageDetails} 
-            relatedPackages={relatedPackages} 
-        />
-    );
+type Props = {
+  params: {
+    slug: string;
+  };
 };
 
-export default PackagePage;
+// This function generates the page metadata (title, description)
+export async function generateMetadata({ params }: Props) {
+    const pkg = await getPackageBySlug(params.slug);
+    if (!pkg) {
+        return {
+            title: 'Package Not Found',
+        };
+    }
+    return {
+        title: `${pkg.title} | Travel Agency`,
+        description: pkg.description,
+    };
+}
 
+export default async function PackageDetailsPage({ params }: Props) {
+  const { slug } = params;
+  const pkg = await getPackageBySlug(slug);
+
+  // If the package is not found, render the 404 page
+  if (!pkg) {
+    notFound();
+  }
+
+  return (
+    <div>
+        <div className="relative h-96 w-full">
+            <Image
+                src={pkg.imageUrl}
+                alt={pkg.title}
+                layout="fill"
+                objectFit="cover"
+                priority
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h1 className="text-5xl font-bold text-white text-center">{pkg.title}</h1>
+            </div>
+        </div>
+        {/* Pass the fetched data to the client component */}
+        <PackageDetailsClient packageData={pkg} />
+    </div>
+  );
+}

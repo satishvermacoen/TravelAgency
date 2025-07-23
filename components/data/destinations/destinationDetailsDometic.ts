@@ -1,22 +1,6 @@
-// This file holds the detailed information for each destination.
-// In a real-world application, this data would likely come from a CMS or a database.
-
-export interface Destination {
-  slug: string;
-  name: string;
-  tagline: string;
-  img: string;
-  description: string;
-  icon: 'Boat' | 'Monastery' | 'Nature' | 'Temple' | 'City' | 'Building' | 'Castle' | 'Mountain';
-  gallery: string[];
-  highlights: string[];
-  bestTimeToVisit: string;
-  idealDuration: string;
-  category: string;
-}
 
 
-export const destinationsDataD: Destination[] = [
+const destinationsDataD = [
   {
     "name": "North East India",
     "slug": "North-East",
@@ -104,14 +88,4 @@ export const destinationsDataD: Destination[] = [
   }
 ];
 
-
-
-// Function to fetch all destination data
-export const getDestinationsDomestic = () => {
-  return destinationsDataD;
-};
-
-// Function to fetch a single destination by its slug
-export const getDestinationBySlug = (slug: string) => {
-  return destinationsDataD.find((dest) => dest.slug === slug);
-};
+export default destinationsDataD

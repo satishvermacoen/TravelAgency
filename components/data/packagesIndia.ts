@@ -1,30 +1,4 @@
-// This file acts as a mock database for all tour packages.
-// In a real-world application, this data would likely come from a CMS or a database.
-
-export interface ItineraryItem {
-  day: number;
-  title: string;
-  details: string;
-}
-
-export interface Package {
-  id: number;
-  slug: string;
-  title: string;
-  location: string;
-  price: number;
-  duration: number;
-  rating: number;
-  type:  'Cultural' | 'Spiritual' | 'Adventure' | 'Nature' | 'Hill Station' | 'Offbeat' | 'Comprehensive' | 'Luxury' | 'Wildlife' | 'Honeymoon' | 'Road Trip' | 'Biking' | 'Family' | 'Beach' | 'Honeymoon' | 'Comprehensive' | 'Cultural' | 'City Tour' | 'Luxury';
-  imageUrl: string;
-  description: string;
-  itinerary: ItineraryItem[];
-  inclusions: string[];
-  exclusions: string[];
-  gallery: string[];
-}
-
-export const allPackages: Package[] = [
+const allPackages = [
     {
         "id": 1,
         "slug": "jaipur-jodhpur-jaisalmer-golden-triangle-rajasthan-5n6d",
@@ -1462,14 +1436,4 @@ export const allPackages: Package[] = [
 
 ]
 
-
-// Function to fetch all packages
-// Function to fetch all packages
-export const getPackages = () => {
-  return allPackages;
-};
-
-// Function to fetch a single package by its slug
-export const getPackageBySlug = (slug: string) => {
-  return allPackages.find((pkg) => pkg.slug === slug);
-};
+export default allPackages
